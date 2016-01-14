@@ -1,4 +1,6 @@
-class Model
+class Model < BaseModel
+  attr_reader :id, :name
+
   def self.find(id)
     return nil unless id
 
@@ -11,7 +13,8 @@ class Model
   end
 
   private
-  def execute_query(query)
-    new
+  def set_attributes(attributes)
+    @id = attributes[:id] if attributes[:id]
+    @name = attributes[:name] if attributes[:name]
   end
 end
